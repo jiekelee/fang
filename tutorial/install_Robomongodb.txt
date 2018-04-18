@@ -1,0 +1,56 @@
+tar -xvzf robo3t-1.1.1-linux-x86_64-c93c6b0.tar.gz
+
+sudo mkdir /usr/local/bin/robomongo
+sudo mv robo3t-1.1.1-linux-x86_64-c93c6b0/* /usr/local/bin/robomongo
+
+
+cd /usr/local/bin/robomongo/bin
+sudo chmod +x robo3t
+
+sudo gedit ~/.bashrc
+
+alias robomongo="/usr/local/bin/robomongo/bin/robo3t"
+
+
+source ~/.bashrc
+
+
+
+robo 3T是mongodb的一个非常好用的可视化管理工具，曾经名为robomongo，现在被收购后改名为robo 3T。且现在robo 3T 1.1版本能支持mongodb3.4。现在在Ubuntu上的安装方法与之前不同，而且我在官网并没有找到安装指引一类的东西，找了许久在stack overflow上找到了详尽的方法。
+
+安装
+首先在robo 3T的官网上下载相应的压缩包。地址：https://robomongo.org/download
+之后解压安装包：
+
+tar -xvzf robo3t-1.1.1-linux-x86_64-c93c6b0.tar.gz
+
+创建一个目录，将解压包里的所有内容移动过去
+
+sudo mkdir /usr/local/bin/robomongo
+sudo mv robo3t-1.1.1-linux-x86_64-c93c6b0/* /usr/local/bin/robomongo
+
+然后移动到我们创建文件夹的bin目录中，给robo3t文件添加权限
+
+cd /usr/local/bin/robomongo/bin
+sudo chmod +x robo3t
+
+然后打开如下文件进行编辑
+
+sudo gedit ~/.bashrc
+
+将以下内容添加到文件的最末尾，保存并退出。这是为了给robo 3t创建一个快捷启动的方式
+
+alias robomongo="/usr/local/bin/robomongo/bin/robo3t"
+
+再运行以下代码
+
+source ~/.bashrc
+
+以后就可以打开终端，输入robomongo就可以启动robo 3T了。
+
+注：打开robo 3T前需要启动mongod服务，链接到数据库，否则robo 3T是无法链接到mongodb数据库的。
+
+作者：王南北丶
+链接：https://www.jianshu.com/p/67a7147b3354
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
